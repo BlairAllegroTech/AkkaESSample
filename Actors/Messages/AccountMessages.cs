@@ -62,6 +62,7 @@ namespace Messages
             get { return AccountId; }
         }
 
+        [Newtonsoft.Json.JsonConstructor]
         public AccountCreated(Guid accountId, string taxNumber, string entityName, AccountType type, int version)
             : base(accountId, version)
         {
@@ -159,6 +160,7 @@ namespace Messages
             get { return AccountId; }
         }
 
+        [Newtonsoft.Json.JsonConstructor]
         public AccountUpdated(Guid accountId, string taxNumber, string entityName, AccountType type, int version)
             : base(accountId, version)
         {
@@ -226,6 +228,7 @@ namespace Messages
             get { return AccountId; }
         }
 
+        [Newtonsoft.Json.JsonConstructor]
         public AccountMailingAddressUpdated(Guid accountId, Address mailingAddress, int version)
             : base(accountId, version)
         {

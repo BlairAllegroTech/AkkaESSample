@@ -21,6 +21,7 @@
     <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,9 +49,6 @@
     </Reference>
     <Reference Include="Akka.DI.Core">
       <HintPath>..\packages\Akka.DI.Core.1.0.4\lib\net45\Akka.DI.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Akka.EventStore.Cqrs.Core">
-      <HintPath>..\libs\Akka.EventStore.Cqrs.Core.dll</HintPath>
     </Reference>
     <Reference Include="Akka.Logger.NLog">
       <HintPath>..\packages\Akka.Logger.NLog.1.0.4\lib\net45\Akka.Logger.NLog.dll</HintPath>
@@ -221,9 +219,15 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Akka.EventStore.Cqrs.Core\Akka.EventStore.Cqrs.Core\Akka.EventStore.Cqrs.Core.csproj">
+      <Project>{30dd280c-b893-45ec-b34f-9fc3ccd86838}</Project>
+      <Name>Akka.EventStore.Cqrs.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Actors\Actors.csproj">
       <Project>{5c0bc6d0-910f-42c5-b0ff-a49c33b3bc19}</Project>
       <Name>Actors</Name>

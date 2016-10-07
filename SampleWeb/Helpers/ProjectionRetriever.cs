@@ -16,7 +16,7 @@ namespace SampleWeb.Helpers
             {
                 try
                 {
-                    var json = wc.DownloadString("http://127.0.0.1:2113/projection/account-index/state");
+                    var json = wc.DownloadString("http://192.168.11.207:2113/projection/account-index/state");
                     return JsonConvert.DeserializeObject<AccountListing>(json).Accounts;
                 }
                 catch(Exception exc)

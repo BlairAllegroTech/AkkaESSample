@@ -21,6 +21,8 @@ namespace Actors
         {
             _log = Context.GetLogger();
             _state = new AccountState(parameters.Id,this);
+
+            _log.Info("Ctor AccountActor: {0}, {1}", this.PersistenceId, this.ToString());
         }
 
         protected override bool Handle(ICommand command)

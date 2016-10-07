@@ -39,7 +39,7 @@ namespace SampleWeb.Controllers
             //processing the command. This way we can immediately tell the user they don't have permission via the UI AND prevent unauthorized command execution on the back end
             SystemActors.CommandProcessor.Tell(new CreateAccount(Guid.NewGuid(), acc.TaxNumber, acc.EntityName, acc.AccountType, MessageContextFactory.Create(this.HttpContext)));
             //Simulate Eventual consistency
-            Thread.Sleep(2000);
+            //Thread.Sleep(2000);
             return new RedirectResult("/home/accounts");
         }
 
@@ -74,7 +74,8 @@ namespace SampleWeb.Controllers
             SystemActors.CommandProcessor.Tell(new UpdateAccountMailingAddress(dto.AccountId,
                 new Domain.Address(dto.StreetAddress1, dto.StreetAddress2, dto.CityTownVilla, dto.StateProvinceTerritory, dto.PostalCode), MessageContextFactory.Create(this.HttpContext)));
             //Simulate Eventual consistency
-            Thread.Sleep(2000);
+
+            //Thread.Sleep(2000);
             return new RedirectResult("/home/accounts");
         }
     }

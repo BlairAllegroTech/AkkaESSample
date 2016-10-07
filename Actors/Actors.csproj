@@ -43,9 +43,6 @@
     <Reference Include="Akka.DI.Core">
       <HintPath>..\packages\Akka.DI.Core.1.0.4\lib\net45\Akka.DI.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Akka.EventStore.Cqrs.Core">
-      <HintPath>..\libs\Akka.EventStore.Cqrs.Core.dll</HintPath>
-    </Reference>
     <Reference Include="Akka.Logger.NLog">
       <HintPath>..\packages\Akka.Logger.NLog.1.0.4\lib\net45\Akka.Logger.NLog.dll</HintPath>
     </Reference>
@@ -107,6 +104,10 @@
     <None Include="protos\tutorial\addressbook.proto" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Akka.EventStore.Cqrs.Core\Akka.EventStore.Cqrs.Core\Akka.EventStore.Cqrs.Core.csproj">
+      <Project>{30dd280c-b893-45ec-b34f-9fc3ccd86838}</Project>
+      <Name>Akka.EventStore.Cqrs.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{b5226305-7e91-4d39-9616-53378f42b0db}</Project>
       <Name>Domain</Name>

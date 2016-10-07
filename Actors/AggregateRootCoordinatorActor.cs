@@ -49,16 +49,51 @@ namespace Grotto.Core.Actor.Actors
             _log.Debug("AggregateRootCoordinatorActor entering Ready state");
             Receive<IAccountMessage>(msg =>
             {
+                
+                var aggregatePath = this.Self.Path.Child("aggregates(account)" + msg.AccountId.ToString());
+                //Context.ActorSelection("aggregates(account)" + msg.AccountId.ToString()).Tell(msg);
+                //Context.ActorSelection(aggregatePath).Tell(msg);
+
                 //this is a pool of operators and we want to forward our message on to a PropertyOperator
                 if (!_accountWorkerRefs.ContainsKey(msg.AccountId))
                 {
                     //_accountWorkerRefs.Add(msg.AccountId,Context.ActorOf(Context.DI().Props<AccountActor>()));
-                    AggregateRootCreationParameters parms = new AggregateRootCreationParameters(msg.AccountId,ActorRefs.Nobody,4);
+                    var parms = new AggregateRootCreationParameters(
+                        msg.AccountId, 
+                        ActorRefs.Nobody, 
+                        snapshotThreshold:100,
+                        receiveTimeout: TimeSpan.FromMinutes(2)
+                        );
+
                     var props = Props.Create<AccountActor>(parms);
-                    
-                    _accountWorkerRefs.Add(msg.AccountId,Context.ActorOf(props, "aggregates(account)"+msg.AccountId.ToString()));
+                    _accountWorkerRefs.Add(msg.AccountId, Context.ActorOf(props, "aggregates(account)" + msg.AccountId.ToString()));
+
+                    _log.Debug("Account:{0}, Added to Agg Root Coordinator Cache", msg.AccountId);
                 }
                 _accountWorkerRefs[msg.AccountId].Forward(msg);
+            });
+
+            Receive<Akka.EventStore.Cqrs.Core.Messages.PassivateMessage>(msg => 
+            {
+                _log.Debug("Account:{0}, timed out, due to no activity", msg.Id);
+                var actorToUnload = Context.Sender;
+                actorToUnload.GracefulStop(TimeSpan.FromSeconds(10)).ContinueWith((success) => 
+                {
+                    if(success.Result)
+                    {
+                        _accountWorkerRefs.Remove(msg.Id);
+                        _log.Debug("Account:{0}, removed", msg.Id);
+                    }
+                    else
+                    {
+                        _log.Warning("Account:{0}, failed to removed", msg.Id);
+                    }
+                });
+
+                // the time between the above and below lines, we need to intercept messages to the child that is being
+                // removed from memory - how to do this?
+
+                //task.Wait(); // dont block thread, use pipeto instead?
             });
         }
 

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{B5226305-7E91-4D39-9616-53378F42B0DB}"
 EndProject
@@ -10,6 +10,15 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actor.Tests", "Actor.Tests\Actor.Tests.csproj", "{0229E6F0-EED8-4080-AC7D-3D6E066B2864}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWeb", "SampleWeb\SampleWeb.csproj", "{CCA4D784-1BBA-44C8-AD73-BB0C2E5CB4D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{4B16785E-102E-41F7-B03F-FA7DC292008B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5AA2F74B-8C22-400D-91CA-F4D0CB381BA2}"
+	ProjectSection(SolutionItems) = preProject
+		TODO.txt = TODO.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Akka.EventStore.Cqrs.Core", "..\Akka.EventStore.Cqrs.Core\Akka.EventStore.Cqrs.Core\Akka.EventStore.Cqrs.Core.csproj", "{30DD280C-B893-45EC-B34F-9FC3CCD86838}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,8 +42,15 @@ Global
 		{CCA4D784-1BBA-44C8-AD73-BB0C2E5CB4D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCA4D784-1BBA-44C8-AD73-BB0C2E5CB4D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCA4D784-1BBA-44C8-AD73-BB0C2E5CB4D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30DD280C-B893-45EC-B34F-9FC3CCD86838}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30DD280C-B893-45EC-B34F-9FC3CCD86838}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30DD280C-B893-45EC-B34F-9FC3CCD86838}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30DD280C-B893-45EC-B34F-9FC3CCD86838}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{30DD280C-B893-45EC-B34F-9FC3CCD86838} = {4B16785E-102E-41F7-B03F-FA7DC292008B}
 	EndGlobalSection
 EndGlobal

@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\xunit.runner.visualstudio.2.1.0\build\net20\xunit.runner.visualstudio.props" Condition="Exists('..\packages\xunit.runner.visualstudio.2.1.0\build\net20\xunit.runner.visualstudio.props')" />
-  <Import Project="..\packages\xunit.core.2.0.0\build\portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS\xunit.core.props" Condition="Exists('..\packages\xunit.core.2.0.0\build\portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS\xunit.core.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -13,7 +12,8 @@
     <AssemblyName>Actor.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>f45085eb</NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -34,47 +34,59 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Akka">
-      <HintPath>..\packages\Akka.1.0.4\lib\net45\Akka.dll</HintPath>
+    <Reference Include="Akka, Version=1.1.2.29, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Akka.1.1.2\lib\net45\Akka.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Akka.DI.AutoFac">
-      <HintPath>..\packages\Akka.DI.AutoFac.1.0.4\lib\net45\Akka.DI.AutoFac.dll</HintPath>
+    <Reference Include="Akka.DI.AutoFac, Version=1.0.8.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Akka.DI.AutoFac.1.0.8\lib\net45\Akka.DI.AutoFac.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Akka.DI.Core">
-      <HintPath>..\packages\Akka.DI.Core.1.0.4\lib\net45\Akka.DI.Core.dll</HintPath>
+    <Reference Include="Akka.DI.Core, Version=1.1.2.29, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Akka.DI.Core.1.1.2\lib\net45\Akka.DI.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Akka.EventStore.Cqrs.Core">
-      <HintPath>..\libs\Akka.EventStore.Cqrs.Core.dll</HintPath>
+    <Reference Include="Akka.Logger.NLog, Version=1.1.1.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Akka.Logger.NLog.1.1.1\lib\net45\Akka.Logger.NLog.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Akka.Logger.NLog">
-      <HintPath>..\packages\Akka.Logger.NLog.1.0.4\lib\net45\Akka.Logger.NLog.dll</HintPath>
+    <Reference Include="Akka.Persistence, Version=1.1.2.30, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Akka.Persistence.1.1.2.30-beta\lib\net45\Akka.Persistence.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Akka.Persistence">
-      <HintPath>..\packages\Akka.Persistence.1.0.4.12-beta\lib\net45\Akka.Persistence.dll</HintPath>
+    <Reference Include="Akka.TestKit, Version=1.1.2.29, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Akka.TestKit.1.1.2\lib\net45\Akka.TestKit.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Akka.TestKit">
-      <HintPath>..\packages\Akka.TestKit.1.0.4\lib\net45\Akka.TestKit.dll</HintPath>
+    <Reference Include="Akka.TestKit.Xunit2, Version=1.1.2.29, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Akka.TestKit.Xunit2.1.1.2\lib\net45\Akka.TestKit.Xunit2.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Akka.TestKit.Xunit2">
-      <HintPath>..\packages\Akka.TestKit.Xunit2.1.0.4\lib\net45\Akka.TestKit.Xunit2.dll</HintPath>
+    <Reference Include="Autofac, Version=4.1.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.1.1\lib\net45\Autofac.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Autofac">
-      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    <Reference Include="Google.ProtocolBuffers, Version=2.4.1.555, Culture=neutral, PublicKeyToken=55f7125234beb589, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.ProtocolBuffers.2.4.1.555\lib\net40\Google.ProtocolBuffers.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Google.ProtocolBuffers">
-      <HintPath>..\packages\Google.ProtocolBuffers.2.4.1.521\lib\net40\Google.ProtocolBuffers.dll</HintPath>
+    <Reference Include="Google.ProtocolBuffers.Serialization, Version=2.4.1.555, Culture=neutral, PublicKeyToken=55f7125234beb589, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.ProtocolBuffers.2.4.1.555\lib\net40\Google.ProtocolBuffers.Serialization.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Google.ProtocolBuffers.Serialization">
-      <HintPath>..\packages\Google.ProtocolBuffers.2.4.1.521\lib\net40\Google.ProtocolBuffers.Serialization.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="NLog">
-      <HintPath>..\packages\NLog.3.0.0.0\lib\net45\NLog.dll</HintPath>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.3.9\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable, Version=1.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.2.0\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -84,11 +96,17 @@
     <Reference Include="xunit.abstractions">
       <HintPath>..\packages\xunit.abstractions.2.0.0\lib\net35\xunit.abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="xunit.assert">
-      <HintPath>..\packages\xunit.assert.2.0.0\lib\portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS\xunit.assert.dll</HintPath>
+    <Reference Include="xunit.assert, Version=2.1.0.3179, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.assert.2.1.0\lib\dotnet\xunit.assert.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="xunit.core">
-      <HintPath>..\packages\xunit.extensibility.core.2.0.0\lib\portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS\xunit.core.dll</HintPath>
+    <Reference Include="xunit.core, Version=2.1.0.3179, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.extensibility.core.2.1.0\lib\dotnet\xunit.core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="xunit.execution.desktop, Version=2.1.0.3179, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
+      <HintPath>..\packages\xunit.extensibility.execution.2.1.0\lib\net45\xunit.execution.desktop.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -100,16 +118,12 @@
     <None Include="App.config" />
     <None Include="NLog.config" />
     <None Include="packages.config" />
-    <None Include="protos\google\protobuf\csharp_options.proto" />
-    <None Include="protos\google\protobuf\descriptor.proto" />
-    <None Include="protos\tutorial\addressbook.proto" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CHANGES.txt" />
-    <Content Include="licenses\license.txt" />
-    <Content Include="licenses\protoc-license.txt" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\..\Akka.EventStore.Cqrs.Core\Akka.EventStore.Cqrs.Core\Akka.EventStore.Cqrs.Core.csproj">
+      <Project>{30dd280c-b893-45ec-b34f-9fc3ccd86838}</Project>
+      <Name>Akka.EventStore.Cqrs.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Actors\Actors.csproj">
       <Project>{5c0bc6d0-910f-42c5-b0ff-a49c33b3bc19}</Project>
       <Name>Actors</Name>
@@ -127,7 +141,6 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\xunit.core.2.0.0\build\portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS\xunit.core.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.core.2.0.0\build\portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS\xunit.core.props'))" />
     <Error Condition="!Exists('..\packages\xunit.runner.visualstudio.2.1.0\build\net20\xunit.runner.visualstudio.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\xunit.runner.visualstudio.2.1.0\build\net20\xunit.runner.visualstudio.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
